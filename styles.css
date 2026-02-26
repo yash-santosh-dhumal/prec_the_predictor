@@ -1,0 +1,178 @@
+:root {
+  --bg: #0a0f1f;
+  --card: #121a31;
+  --muted: #93a1c6;
+  --text: #edf2ff;
+  --accent: #5db0ff;
+  --buy: #29d391;
+  --sell: #ff7285;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #17264a 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(1120px, 95vw);
+  margin: 2rem auto 3rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card {
+  background: color-mix(in oklab, var(--card) 92%, black);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.uploader-card {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: end;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+select,
+input,
+button {
+  width: 100%;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0f162d;
+  color: var(--text);
+  padding: 0.72rem;
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(135deg, #2376ff, #4ec7e6);
+  border: none;
+  font-weight: 600;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.workspace {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.preview-placeholder,
+.empty-state {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  min-height: 340px;
+  display: grid;
+  place-content: center;
+  color: var(--muted);
+  text-align: center;
+}
+
+#previewContainer img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+#analysisCanvas {
+  display: none;
+}
+
+.signal-pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.signal-buy {
+  background: color-mix(in oklab, var(--buy) 35%, #081b13);
+  color: #8af8cb;
+}
+
+.signal-sell {
+  background: color-mix(in oklab, var(--sell) 38%, #230a10);
+  color: #ffb6c0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.metric {
+  padding: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.metric h4 {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.metric p {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+
+.disclaimer {
+  margin-top: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .uploader-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 840px) {
+  .workspace,
+  .grid,
+  .uploader-card {
+    grid-template-columns: 1fr;
+  }
+}

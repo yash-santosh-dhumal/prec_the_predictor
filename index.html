@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart Signal Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">AI-assisted trader workflow</p>
+        <h1>Chart Signal Lab</h1>
+        <p class="subtitle">
+          Upload your chart, combine it with live market candles, and generate a data-backed trade plan
+          including bias, target, stop loss, risk/reward, timeframe, and model confidence.
+        </p>
+      </header>
+
+      <section class="card uploader-card">
+        <div>
+          <label for="assetType">Market</label>
+          <select id="assetType">
+            <option value="Crypto">Crypto (Binance)</option>
+            <option value="Stock">Stock / ETF (Stooq)</option>
+            <option value="Index">Index (Stooq)</option>
+            <option value="Forex">Forex (Stooq)</option>
+            <option value="Gold/Silver">Gold / Silver (Stooq)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="symbolInput">Symbol</label>
+          <input id="symbolInput" type="text" placeholder="BTCUSDT, AAPL.US, EURUSD" value="BTCUSDT" />
+        </div>
+
+        <div>
+          <label for="timeframe">Timeframe</label>
+          <select id="timeframe">
+            <option value="15m">15m</option>
+            <option value="1h" selected>1h</option>
+            <option value="4h">4h</option>
+            <option value="1d">1d</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="chartFile">Upload chart image</label>
+          <input id="chartFile" type="file" accept="image/*" />
+        </div>
+
+        <button id="analyzeBtn">Analyze with model</button>
+      </section>
+
+      <section class="workspace">
+        <article class="card preview-card">
+          <h2>Chart preview</h2>
+          <div id="previewContainer" class="preview-placeholder">Upload a chart to preview it (optional).</div>
+          <canvas id="analysisCanvas" aria-hidden="true"></canvas>
+        </article>
+
+        <article class="card result-card">
+          <h2>Trading desk output</h2>
+          <div id="resultContainer" class="empty-state">
+            Enter symbol + timeframe and click analyze.
+          </div>
+        </article>
+      </section>
+
+      <section class="card disclaimer">
+        <h3>Important</h3>
+        <p>
+          Uses public market data and a lightweight logistic classifier trained in-browser on recent candles.
+          This is educational tooling only and not financial advice.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
