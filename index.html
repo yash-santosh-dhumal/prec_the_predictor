@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chart Signal Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">AI-assisted trader workflow</p>
+        <h1>Chart Signal Lab</h1>
+        <p class="subtitle">
+          Upload any forex, crypto, metals, or equity chart image and get a structured trade plan
+          with bias, target, stop loss, risk/reward and timeframe guidance.
+        </p>
+      </header>
+
+      <section class="card uploader-card">
+        <div>
+          <label for="assetType">Market</label>
+          <select id="assetType">
+            <option value="Forex">Forex</option>
+            <option value="Crypto">Crypto</option>
+            <option value="Gold/Silver">Gold / Silver</option>
+            <option value="Stock">Stock</option>
+            <option value="Index">Index</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="chartFile">Upload chart image</label>
+          <input id="chartFile" type="file" accept="image/*" />
+        </div>
+
+        <button id="analyzeBtn" disabled>Analyze chart</button>
+      </section>
+
+      <section class="workspace">
+        <article class="card preview-card">
+          <h2>Chart preview</h2>
+          <div id="previewContainer" class="preview-placeholder">Upload a chart to preview it.</div>
+          <canvas id="analysisCanvas" aria-hidden="true"></canvas>
+        </article>
+
+        <article class="card result-card">
+          <h2>Trading desk output</h2>
+          <div id="resultContainer" class="empty-state">
+            Analysis appears here once you upload and process a chart.
+          </div>
+        </article>
+      </section>
+
+      <section class="card disclaimer">
+        <h3>Important</h3>
+        <p>
+          This is an educational assistant that estimates chart momentum from the uploaded image and
+          converts it into a sample trade plan. It is not financial advice. Always validate with your
+          own strategy and risk controls.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
